@@ -12,6 +12,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   min-height: 100vh;
 }
 
@@ -27,4 +28,15 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+.main {
+  width: 100%;
+  padding: 24px;
+  flex-grow: 1;
+  height: 1px;
 }

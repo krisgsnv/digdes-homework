@@ -1,9 +1,12 @@
 :root {
   --background-primary: #1f75cb;
   --background-primary-hover: #1068bf;
+  --background-primary-active: #0b5cad;
   --background-secondary: #ffffff;
   --background-secondary-hover: #ececef;
   --font: normal 14px/1.375 'Open Sans', sans-serif;
   --font-primary: #1c1c1c;
   --font-secondary: #ffffff;
+  --border-default: 1px solid rgba(0, 0, 0, 0.15);
+  --border-radius-default: 4px;
 }

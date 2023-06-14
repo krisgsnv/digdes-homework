@@ -1,7 +1,9 @@
 @import '../../css/vars.css';
 @import '../../css/main.css';
+@import '../Button/style.css';
 
 .navigation {
+  width: 100%;
   background-color: var(--background-primary);
   display: flex;
   flex-wrap: wrap;
@@ -11,19 +13,14 @@
   padding: 24px;
 }
 
-.navigation__item {
-  padding: 12px 16px;
-  border-radius: 4px;
-}
-
 .navigation__item_default {
   border: 1px solid var(--background-secondary);
   color: var(--font-secondary);
-  transition: background-color 0.2s ease-in-out;
 }
 
 .navigation__item_active {
   background-color: var(--background-secondary);
+  color: var(--font-primary);
 }
 
 .navigation__item_default:hover {
@@ -31,34 +28,34 @@
   color: var(--font-primary);
 }
 
-.navigation__user {
+.navigation-user {
   padding: 9px 16px;
   display: flex;
-  border-radius: 4px;
+  border-radius: var(--border-radius-default);
   border: 1px solid transparent;
   transition: border-color 0.2s ease-in-out;
 }
 
-.navigation__user_active {
+.navigation-user_active {
   background-color: var(--background-secondary);
 }
 
-.navigation__user:hover {
+.navigation-user:hover {
   border-color: var(--background-secondary);
 }
 
-.navigation__userpic {
+.navigation-user__pic {
   width: 24px;
   height: 24px;
   border-radius: 50%;
   object-fit: contain;
 }
 
-.navigation__arrow {
+.navigation-user__arrow {
   fill: var(--background-secondary);
   margin-left: 8px;
 }
 
-.navigation__user_active .navigation__arrow {
+.navigation-user_active .navigation__arrow {
   fill: var(--background-secondary-hover);
 }
