@@ -1,0 +1,9 @@
+:root {
+  --background-primary: #1f75cb;
+  --background-primary-hover: #1068bf;
+  --background-secondary: #ffffff;
+  --background-secondary-hover: #ececef;
+  --font: normal 14px/1.375 'Open Sans', sans-serif;
+  --font-primary: #1c1c1c;
+  --font-secondary: #ffffff;
+}
