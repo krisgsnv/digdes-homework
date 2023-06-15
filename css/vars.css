@@ -6,7 +6,10 @@
   --background-secondary: #ffffff;
   --background-secondary-hover: #ececef;
   --background-secondary-active: #dcdcde;
-  --font: normal 14px/1.375 'Open Sans', sans-serif;
+  --background-bronze: #9e6955;
+  --background-error: #ee4222;
+  --background-disabled: #8e8e8e;
+  --font: normal 14px/19px 'Open Sans', sans-serif;
   --font-primary: #1c1c1c;
   --font-secondary: #ffffff;
   --font-disabled: #8e8e8e;

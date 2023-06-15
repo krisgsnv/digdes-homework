@@ -47,14 +47,19 @@
 }
 
 .list-item__more-icon {
-  display: none;
+  width: 0;
+  padding: 0;
+  border: 0;
+  transition: all 0.2s linear;
 }
 
 .list-item:hover .list-item__more-icon {
-  display: flex;
   margin-left: 16px;
+  width: 44px;
+  padding: 9px;
+  border: var(--border-default);
 }
 
 .list-item:hover .list-item__content {
-  max-width: calc(100% - 60px);
-}
+    max-width: calc(100% - 60px);
+  }

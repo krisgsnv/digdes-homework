@@ -1,0 +1,9 @@
+@import '../list-item/style.css';
+@import '../status-label/style.css';
+@import '../avatar/style.css';
+
+.task-item__heading {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 16px;
+}
