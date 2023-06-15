@@ -1,0 +1,18 @@
+@import '../../css/vars.css';
+@import '../../css/main.css';
+@import '../button/style.css';
+
+.more-icon {
+  display: flex;
+}
+.more-icon__svg_primary {
+  fill: var(--font-secondary);
+}
+
+.more-icon__svg_secondary {
+  fill: var(--font-primary);
+}
+
+.more-icon__svg_disabled {
+  fill: var(--font-disabled);
+}

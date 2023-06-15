@@ -1,6 +1,7 @@
 @import '../../css/vars.css';
 @import '../../css/main.css';
-@import '../Button/style.css';
+@import '../button/style.css';
+@import '../avatar/style.css';
 
 .navigation {
   width: 100%;
@@ -15,7 +16,6 @@
 
 .navigation__item_default {
   border: 1px solid var(--background-secondary);
-  color: var(--font-secondary);
 }
 
 .navigation__item_active {
@@ -42,13 +42,6 @@
 
 .navigation-user:hover {
   border-color: var(--background-secondary);
-}
-
-.navigation-user__pic {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: contain;
 }
 
 .navigation-user__arrow {

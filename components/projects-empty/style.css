@@ -1,6 +1,6 @@
 @import '../../css/vars.css';
 @import '../../css/main.css';
-@import '../Button/style.css';
+@import '../button/style.css';
 
 .projects-empty {
   min-height: 100%;
