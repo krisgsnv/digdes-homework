@@ -22,12 +22,13 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  height: 2.75em;
+  height: 38px;
 }
 
 .list-item__info {
   display: flex;
   column-gap: 16px;
+  padding-top: 4px;
 }
 
 .list-item__num {
@@ -61,5 +62,5 @@
 }
 
 .list-item:hover .list-item__content {
-    max-width: calc(100% - 60px);
-  }
+  max-width: calc(100% - 60px);
+}
