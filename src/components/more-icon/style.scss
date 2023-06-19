@@ -1,0 +1,14 @@
+.more-icon {
+  display: flex;
+  &__svg {
+    &_primary {
+      fill: $font-secondary;
+    }
+    &_secondary {
+      fill: $font-primary;
+    }
+    &_disabled {
+      fill: $font-disabled;
+    }
+  }
+}

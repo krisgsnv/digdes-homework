@@ -1,0 +1,16 @@
+@import './vars.scss';
+@import './normalize.scss';
+@import './main.scss';
+@import './mixins.scss';
+@import './fonts.scss';
+
+@import '../components/avatar/style.scss';
+@import '../components/button/style.scss';
+@import '../components/more-icon/style.scss';
+@import '../components/projects-empty/style.scss';
+@import '../components/status-label/style.scss';
+@import '../components/navigation/style.scss';
+@import '../components/task-item/style.scss';
+
+@import './blocks/list-item.scss';
+@import './blocks/main.scss';

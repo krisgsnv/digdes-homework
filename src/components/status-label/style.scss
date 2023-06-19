@@ -1,0 +1,30 @@
+.status-label {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: $border-radius-default;
+  color: $font-secondary;
+  &_draft {
+    background-color: $background-bronze;
+  }
+  &_progress {
+    background-color: $background-bronze;
+  }
+  &_completed {
+    background-color: $background-primary;
+  }
+  &_testing {
+    background-color: $background-bronze;
+  }
+  &_closed {
+    background-color: $background-primary;
+  }
+  &_deleted {
+    background-color: $background-error;
+  }
+  &_active {
+    background-color: $background-primary;
+  }
+  &_not-active {
+    background-color: $background-disabled;
+  }
+}
