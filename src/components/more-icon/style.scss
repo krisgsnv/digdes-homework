@@ -1,14 +1,15 @@
 .more-icon {
   display: flex;
   &__svg {
+    pointer-events: none;
     &_primary {
-      fill: $font-secondary;
+      color: $font-secondary;
     }
     &_secondary {
-      fill: $font-primary;
+      color: $font-primary;
     }
     &_disabled {
-      fill: $font-disabled;
+      color: $font-disabled;
     }
   }
 }

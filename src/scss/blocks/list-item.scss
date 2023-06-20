@@ -5,8 +5,9 @@
   padding: 0 16px 8px;
   border-bottom: $border-active;
   margin-top: 10px;
+  position: relative;
   &__content {
-    @include transition-property(max-width);
+    transition: max-width 0.2s ease-in-out;
     max-width: 100%;
     width: 100%;
   }
@@ -36,18 +37,25 @@
     }
   }
   &__more-icon {
-    width: 0;
-    padding: 0;
-    border: 0;
-    transition: all 0.2s linear;
+    display: none;
+    margin-left: 16px;
+    padding: 9px;
+  }
+  &__dropdown {
+    display: none;
+    right: 16px;
+    top: 55px;
   }
   &:hover &__more-icon {
-    margin-left: 16px;
-    width: 44px;
-    padding: 9px;
-    border: $border-default;
+    display: flex;
   }
   &:hover &__content {
     max-width: calc(100% - 60px);
+  }
+  &:hover .dropdown_active {
+    display: block;
+  }
+  &:hover .dropdown_hidden {
+    display: none;
   }
 }

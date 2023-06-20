@@ -1,3 +1,3 @@
-export function statusLabel() {
-  return `<span class="status-label status-label_draft">Черновик</span>`
+export function statusLabel(text, classes='') {
+  return `<span class="status-label${classes}">${text}</span>`
 }
