@@ -1,5 +1,13 @@
+export function toggleClass(elem, ...classes) {
+    classes.map(el => elem.classList.toggle(el))
+}
+
+export function hasClass(elem, className) {
+  return elem.classList.contains(className)
+}
+
 export function setActiveElem(target, active, activeClass, defaultClass) {
-  if (!target.classList.contains(activeClass)) {
+  if (!hasClass(target, activeClass)) {
     active.classList.remove(activeClass)
     active.classList.add(defaultClass)
 
@@ -8,18 +16,33 @@ export function setActiveElem(target, active, activeClass, defaultClass) {
   }
 }
 
-export function hideDropdowns() {
-  const dropdowns = document.querySelectorAll('.dropdown')
-  document.querySelector('.navigation-user').classList.remove('navigation-user_active')
-  document.querySelectorAll('.list-item__more-icon').forEach(el=>{
-    el.classList.add('button_secondary_default')
-    el.classList.remove('button_secondary_active')
-  });
+export function hideAllDropdowns(dropdowns) {
+  const navUser = document.querySelector('.navigation-user');
+  navUser.classList.remove('navigation-user_active')
+  document.querySelectorAll('.list-item__more-icon').forEach((el) => {
+    resetListControl(el)
+  })
   dropdowns.forEach((el) => {
-    el.classList.remove('dropdown_active')
-    el.classList.add('dropdown_hidden')
+    hideDropdown(el)
   })
 }
 
+export function hideOtherDropdowns(dropdowns, target) {
+  dropdowns.forEach((el) => {
+    if (el == target) {
+      toggleClass(target, 'dropdown_active', 'dropdown_hidden')
+    } else {
+      hideDropdown(el)
+    }
+  })
+}
 
+export function hideDropdown(target) {
+  target.classList.remove('dropdown_active')
+  target.classList.add('dropdown_hidden')
+}
 
+export function resetListControl(target) {
+  target.classList.add('button_secondary_default')
+  target.classList.remove('button_secondary_active')
+}
