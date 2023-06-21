@@ -1,8 +1,8 @@
 import avatarSrc from '@/assets/images/profile.jpg'
-import { avatar } from '../avatar/index'
-import { statusLabel } from '../status-label'
-import { dropdown } from "../dropdown";
-import { moreIcon } from "../more-icon";
+import { avatar } from '@/components/avatar/index.js'
+import { statusLabel } from '@/components/status-label'
+import { dropdown } from '@/components/dropdown';
+import { moreIcon } from '@/components/more-icon';
 
 export function taskItem(title, num, created, modified) {
   const dropdownActions = [

@@ -1,5 +1,5 @@
-import { dropdown } from "../dropdown";
-import { moreIcon } from "../more-icon";
+import { dropdown } from '@/components/dropdown';
+import { moreIcon } from '@/components/more-icon';
 
 export function projectItem(title, num, created, modified) {
   const dropdownActions = [

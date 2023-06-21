@@ -1,4 +1,4 @@
-import { setActiveElem, hideAllDropdowns, hideOtherDropdowns, resetListControl, hasClass, toggleClass } from './helpers'
+import { setActiveElem, hideAllDropdowns, hideOtherDropdowns, resetListControl, hasClass, toggleClass } from '@/js/helpers'
 
 document.addEventListener('click', function (e) {
   const target = e.target

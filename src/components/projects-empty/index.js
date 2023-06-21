@@ -1,4 +1,4 @@
-import { button } from "../button"
+import { button } from '@/components/button'
 
 export function projectsEmpty() {
   return `<section class="projects-empty">

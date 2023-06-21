@@ -1,5 +1,7 @@
+import { navigation } from '@/components/navigation/index.js'
+
 export function toggleClass(elem, ...classes) {
-    classes.map(el => elem.classList.toggle(el))
+  classes.map((el) => elem.classList.toggle(el))
 }
 
 export function hasClass(elem, className) {
@@ -17,7 +19,7 @@ export function setActiveElem(target, active, activeClass, defaultClass) {
 }
 
 export function hideAllDropdowns(dropdowns) {
-  const navUser = document.querySelector('.navigation-user');
+  const navUser = document.querySelector('.navigation-user')
   navUser.classList.remove('navigation-user_active')
   document.querySelectorAll('.list-item__more-icon').forEach((el) => {
     resetListControl(el)
@@ -45,4 +47,17 @@ export function hideDropdown(target) {
 export function resetListControl(target) {
   target.classList.add('button_secondary_default')
   target.classList.remove('button_secondary_active')
+}
+
+export function renderContent(...elements) {
+  const app = document.getElementById('app')
+  app.insertAdjacentHTML('beforeend', navigation())
+
+  const main = document.createElement('main')
+  main.classList.add('main')
+  app.appendChild(main)
+
+  elements.forEach((el) => {
+    main.insertAdjacentHTML('beforeend', el)
+  })
 }

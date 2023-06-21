@@ -1,7 +1,7 @@
 import avatarSrc from '@/assets/images/profile.jpg'
-import { avatar } from '../avatar'
-import { button } from '../button'
-import { dropdown } from '../dropdown'
+import { avatar } from '@/components/avatar'
+import { button } from '@/components/button'
+import { dropdown } from '@/components/dropdown'
 
 export function navigation() {
   const dropdownActions = [
