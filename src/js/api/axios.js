@@ -8,10 +8,10 @@ function createAxiosRequest(token, method, url, body, success) {
     headers: getHeaders(token),
   }
   if (body) params.data = JSON.stringify(body)
-  
+
   axios(params)
     .then((response) => success(response.data))
-    .catch((error) => console.log(error))
+    .catch((error) => console.log('Error status', error.response.status))
 }
 
 export function createItemAxios(token, mode, params) {
@@ -110,7 +110,7 @@ export function deleteItemAxios(token, mode, id) {
   }
 
   function success() {
-    console.log(`${message} через axios: `)
+    console.log(`${message} через axios`)
   }
   createAxiosRequest(token, 'DELETE', url, false, success)
 }

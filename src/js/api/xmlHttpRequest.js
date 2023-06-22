@@ -16,10 +16,14 @@ function createXmlHttpRequest(token, method, url, body, success) {
   body ? xhr.send(JSON.stringify(body)) : xhr.send()
 
   xhr.onload = () => {
-    if (xhr.status >= 400) {
-      console.log('error', xhr.response)
-    } else {
-      success(xhr.response)
+    try {
+      if (xhr.status == 200) {
+        success(xhr.response)
+      } else {
+        console.log('Error status ' + xhr.status)
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 

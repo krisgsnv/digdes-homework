@@ -8,8 +8,14 @@ function createFetchRequest(token, method, url, body, success) {
   if (body) params.body = JSON.stringify(body)
 
   fetch(getUrl(url), params)
-    .then((response) => response.json())
-    .then((data) => success(data))
+    .then((response) => {
+      if (response.status == 200) {
+        response.json()
+        .then((data) => success(data))
+      } else {
+        console.log('Error status ' + response.status)
+      }
+    })
     .catch((error) => console.log(error))
 }
 
