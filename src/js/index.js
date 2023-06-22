@@ -1,5 +1,6 @@
 import '@/scss/index.scss'
 import '@/js/register.js'
+import '@/js/handlers.js'
 
 import { projectItem } from '@/components/project-item/index.js'
 import { taskItem } from '@/components/task-item/index.js'
