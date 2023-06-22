@@ -1,3 +1,5 @@
+import { button } from "../components/button"
+
 export function toggleClass(elem, ...classes) {
     classes.map(el => elem.classList.toggle(el))
 }
@@ -45,4 +47,8 @@ export function hideDropdown(target) {
 export function resetListControl(target) {
   target.classList.add('button_secondary_default')
   target.classList.remove('button_secondary_active')
+}
+
+export function createPrimaryButton(text, classes) {
+  return button(text, ` projects-empty__button button_primary button_primary_default${classes}`)
 }
