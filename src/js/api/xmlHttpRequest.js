@@ -13,7 +13,8 @@ function createXmlHttpRequest(token, method, url, body, success) {
   xhr.responseType = 'json'
   setXmlHeaders(getHeaders(token), xhr)
 
-  xhr.send(body ? JSON.stringify(body) : '')
+  body ? xhr.send(JSON.stringify(body)) : xhr.send()
+
   xhr.onload = () => {
     if (xhr.status >= 400) {
       console.log('error', xhr.response)

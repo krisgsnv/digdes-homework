@@ -1,19 +1,20 @@
 import { getUrl, getHeaders, testDataId } from '@/js/api/api.js'
+import axios from 'axios'
 
-function createFetchRequest(token, method, url, body, success) {
+function createAxiosRequest(token, method, url, body, success) {
   const params = {
-    method: method,
+    method,
+    url: getUrl(url),
     headers: getHeaders(token),
   }
-  if (body) params.body = JSON.stringify(body)
-
-  fetch(getUrl(url), params)
-    .then((response) => response.json())
-    .then((data) => success(data))
+  if (body) params.data = JSON.stringify(body)
+  
+  axios(params)
+    .then((response) => success(response.data))
     .catch((error) => console.log(error))
 }
 
-export function createItemFetch(token, mode, params) {
+export function createItemAxios(token, mode, params) {
   let url = '',
     body = {},
     message = ''
@@ -36,15 +37,15 @@ export function createItemFetch(token, mode, params) {
 
   return new Promise((resolve) => {
     function success(response) {
-      console.log(`${message} через fetch: `, response)
+      console.log(`${message} через axios: `, response)
       testDataId[mode] = response._id
       resolve(response)
     }
-    createFetchRequest(token, 'POST', url, body, success)
+    createAxiosRequest(token, 'POST', url, body, success)
   })
 }
 
-export function getItemListFetch(token, mode, page = 1) {
+export function getItemListAxios(token, mode, page = 1) {
   let url = '',
     message = ''
   switch (mode) {
@@ -61,12 +62,12 @@ export function getItemListFetch(token, mode, page = 1) {
   }
 
   function success(response) {
-    console.log(`${message} на странице ${page} через fetch: `, response)
+    console.log(`${message} на странице ${page} через axios: `, response)
   }
-  createFetchRequest(token, 'POST', url, { page }, success)
+  createAxiosRequest(token, 'POST', url, { page }, success)
 }
 
-export function editItemFetch(token, mode, id, newProperties) {
+export function editItemAxios(token, mode, id, newProperties) {
   let url = '',
     body = {
       _id: id,
@@ -87,12 +88,12 @@ export function editItemFetch(token, mode, id, newProperties) {
   }
 
   function success(response) {
-    console.log(`${message} через fetch: `, response)
+    console.log(`${message} через axios: `, response)
   }
-  createFetchRequest(token, 'PUT', url, body, success)
+  createAxiosRequest(token, 'PUT', url, body, success)
 }
 
-export function deleteItemFetch(token, mode, id) {
+export function deleteItemAxios(token, mode, id) {
   let url = '',
     message = ''
   switch (mode) {
@@ -109,7 +110,7 @@ export function deleteItemFetch(token, mode, id) {
   }
 
   function success() {
-    console.log(`${message} через fetch: `)
+    console.log(`${message} через axios: `)
   }
-  createFetchRequest(token, 'DELETE', url, false, success)
+  createAxiosRequest(token, 'DELETE', url, false, success)
 }

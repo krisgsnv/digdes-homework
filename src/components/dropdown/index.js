@@ -1,4 +1,4 @@
-export function dropdown(actions, classes = '') {
+export default function dropdown(actions, classes = '') {
   return `<ul class="dropdown${classes}"> 
             ${actions.map(
               (action) =>
