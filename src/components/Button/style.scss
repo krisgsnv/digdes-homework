@@ -1,0 +1,44 @@
+.button {
+  padding: 12px 16px;
+  border-radius: $border-radius-default;
+  transition: background-color 0.2s ease-in-out;
+  &_primary {
+    color: $font-secondary;
+    &_default {
+      background-color: $background-primary;
+      &:hover {
+        background-color: $background-primary-hover;
+      }
+    }
+    &_active {
+      background-color: $background-primary-active;
+    }
+    &_disabled {
+      background-color: $background-primary-disabled;
+    }
+  }
+  &_secondary {
+    color: $font-primary;
+    border: $border-default;
+    &_default {
+      background-color: $background-secondary;
+      &:hover {
+        background-color: $background-secondary-hover;
+        border: $border-hover;
+      }
+    }
+    &_active {
+      background-color: $background-secondary-active;
+      border: $border-active;
+    }
+    &__disabled {
+      border: $border-disabled;
+    }
+  }
+  &_disabled {
+    color: $font-disabled;
+  }
+  &_small {
+    padding: 9px;
+  }
+}

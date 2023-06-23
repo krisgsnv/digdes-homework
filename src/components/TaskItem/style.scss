@@ -1,0 +1,7 @@
+.task-item {
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 16px;
+  }
+}

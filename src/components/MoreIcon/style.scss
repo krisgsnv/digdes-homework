@@ -1,0 +1,15 @@
+.more-icon {
+  display: flex;
+  &__svg {
+    pointer-events: none;
+    &_primary {
+      color: $font-secondary;
+    }
+    &_secondary {
+      color: $font-primary;
+    }
+    &_disabled {
+      color: $font-disabled;
+    }
+  }
+}

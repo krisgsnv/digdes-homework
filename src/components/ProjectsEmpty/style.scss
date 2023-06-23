@@ -1,0 +1,11 @@
+.projects-empty {
+  @include flex-center;
+  border: $border-default;
+  border-radius: $border-radius-default;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+  &__button {
+    margin-top: 10px;
+  }
+}

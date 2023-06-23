@@ -1,0 +1,23 @@
+.dropdown {
+  background-color: $background-secondary;
+  padding: 8px 0;
+  box-shadow: $box-shadow-default;
+  position: absolute;
+  z-index: 1;
+  &__action {
+    display: block;
+    padding: 8px 16px;
+    &_accent {
+      color: $font-error;
+    }
+  }
+  &__link {
+    display: block;
+  }
+  &_hidden {
+    display: none;
+  }
+  &_active {
+    display: block;
+  }
+}
