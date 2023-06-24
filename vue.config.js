@@ -4,16 +4,24 @@ module.exports = defineConfig({
   css: {
     loaderOptions: {
       scss: {
-        additionalData: (content, loaderContext) => {
-          if (loaderContext.resourcePath.endsWith("vars.scss")) {
-            return `@import "@/scss/mixins.scss";${content}`;
-          }
-          else if (loaderContext.resourcePath.endsWith("mixins.scss")) {
-            return `@import "@/scss/vars.scss";${content}`;
-          }
-          return `@import "@/scss/vars.scss"; @import "@/scss/mixins.scss";${content}`;
-        },
+        additionalData:
+          '@import "@/scss/vars.scss"; @import "@/scss/mixins.scss";',
       },
     },
+  },
+  pluginOptions: {
+    svgSprite: {
+      dir: "./src/assets/icons",
+      test: /\.svg$/,
+      loaderOptions: {
+        extract: false,
+      },
+    },
+  },
+  chainWebpack: (config) => {
+    config.module
+      .rule("svg-sprite")
+      .use("svg-sprite-loader")
+      .loader("svg-sprite-loader");
   },
 });

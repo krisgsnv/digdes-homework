@@ -14,9 +14,13 @@
         </span>
       </div>
     </div>
-    <MoreIcon class="list-item__more-icon list-item__more-icon_default
-    button_secondary button_secondary_default" />
-    <Dropdown :actions="dropdownActions" class="list-item__dropdown dropdown_hidden" />
+    <MoreIcon
+      class="list-item__more-icon list-item__more-icon_default button_secondary button_secondary_default"
+    />
+    <Dropdown
+      :actions="dropdownActions"
+      class="list-item__dropdown dropdown_hidden"
+    />
   </div>
 </template>
 
