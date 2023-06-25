@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Tasks />
-    <svg-icon icon-class="logo_in" class-name="sidebar-logo"></svg-icon>
   </div>
 </template>
 

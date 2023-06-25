@@ -2,8 +2,7 @@
   <button class="more-icon button button_small" type="button" title="Действия">
     <Icon
       :href="'#more-icon'"
-      class="more-icon__svg more-icon__svg_secondary"
-    />
+      class="more-icon__svg more-icon__svg_secondary" />
   </button>
 </template>
 

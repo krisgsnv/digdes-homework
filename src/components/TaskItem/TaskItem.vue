@@ -2,25 +2,29 @@
   <div class="list-item">
     <div class="list-item__content">
       <div class="task-item__heading">
-        <p class="list-item__title">{{ title }}</p>
+        <p class="list-item__name">{{ task.name }}</p>
         <Avatar :src="avatarSrc" />
       </div>
       <div class="list-item__info">
-        <span class="list-item__num">{{ num }}</span>
-        <span class="list-item__status">{{ created }}</span>
+        <span class="list-item__num">
+          {{ task.projectCode }}#{{ task.number }}
+        </span>
+        <span class="list-item__status">
+          {{ task.author }} создал(а) {{ task.dateCreated }}
+        </span>
         <StatusLabel :text="'Черновик'" class="status-label_draft" />
-        <span class="list-item__status list-item__status_right">
-          {{ modified }}
+        <span
+          v-if="task.dateEdited"
+          class="list-item__status list-item__status_right">
+          {{ task.authorEdited }} изменил(а) {{ task.dateEdited }}
         </span>
       </div>
     </div>
     <MoreIcon
-      class="list-item__more-icon list-item__more-icon_default button_secondary button_secondary_default"
-    />
+      class="list-item__more-icon list-item__more-icon_default button_secondary button_secondary_default" />
     <Dropdown
       :actions="dropdownActions"
-      class="list-item__dropdown dropdown_hidden"
-    />
+      class="list-item__dropdown dropdown_hidden" />
   </div>
 </template>
 
@@ -47,13 +51,13 @@ const dropdownActions = [
 
 export default {
   data: function () {
-    return { avatarSrc, dropdownActions };
+    return {
+      avatarSrc,
+      dropdownActions,
+    };
   },
   props: {
-    title: String,
-    num: String,
-    created: String,
-    modified: String,
+    task: Object,
   },
   components: {
     Avatar,

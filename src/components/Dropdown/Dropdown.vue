@@ -13,7 +13,7 @@ export default {
     return {};
   },
   props: {
-    actions: Object,
+    actions: Array,
   },
 };
 </script>

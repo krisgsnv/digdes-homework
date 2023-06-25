@@ -4,14 +4,13 @@
   width: 100%;
   padding: 0 16px 8px;
   border-bottom: $border-active;
-  margin-top: 10px;
   position: relative;
   &__content {
     transition: max-width 0.2s ease-in-out;
     max-width: 100%;
     width: 100%;
   }
-  &__title {
+  &__name {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
