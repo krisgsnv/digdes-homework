@@ -18,6 +18,10 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  &_row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .container {
@@ -25,4 +29,8 @@ body {
   flex-direction: column;
   align-items: flex-start;
   min-height: inherit;
+}
+
+h1 {
+  font-size: $h1;
 }

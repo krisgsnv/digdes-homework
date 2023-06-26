@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import "./style.scss";
 import avatarSrc from "@/assets/images/profile.jpg";
 
 import DropdownButton from "@/components/DropdownButton/DropdownButton.vue";
@@ -65,3 +64,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

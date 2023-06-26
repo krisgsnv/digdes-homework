@@ -33,11 +33,9 @@
 </template>
 
 <script>
-import "./style.scss";
 import src from "@/assets/images/profile.jpg";
 
 import Avatar from "@/components/Avatar/Avatar.vue";
-//import Button from "@/components/Button/Button.vue";
 import Icon from "@/components/Icon/Icon.vue";
 
 export default {
@@ -95,9 +93,12 @@ export default {
     },
   },
   components: {
-    //    Button,
     Avatar,
     Icon,
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import "./style.scss";
 export default {
   data: function () {
     return {
@@ -35,3 +34,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

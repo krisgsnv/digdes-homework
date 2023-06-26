@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import "./style.scss";
 export default {
   props: {
     status: String,
@@ -25,6 +24,10 @@ export default {
           return "Закрыта";
         case "DELETED":
           return "Удалена";
+        case "ACTIVE":
+          return "Активен";
+        case "NOTACTIVE":
+          return "Неактивен";
         default:
           return "";
       }
@@ -35,3 +38,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

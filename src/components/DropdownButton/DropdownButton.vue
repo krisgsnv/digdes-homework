@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      :class="[buttonProps.classes, buttonClasses]"
+      :class="[buttonClasses, buttonProps.classes]"
       class="dropdown-button button button_small button_secondary"
       type="button"
       :title="button.title"
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import "./style.scss";
-
 import Icon from "@/components/Icon/Icon.vue";
 
 export default {
@@ -61,7 +59,9 @@ export default {
     },
   },
   props: {
-    buttonProps: Object,
+    buttonProps: {
+      default: "",
+    },
     dropdownProps: Object,
   },
   components: {
@@ -69,3 +69,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

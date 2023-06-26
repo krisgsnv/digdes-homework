@@ -23,6 +23,7 @@
 }
 
 .dropdown-button {
+  display: flex;
   &__svg {
     pointer-events: none;
     &_primary {

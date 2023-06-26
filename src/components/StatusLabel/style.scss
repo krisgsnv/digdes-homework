@@ -24,10 +24,10 @@
   &_deleted {
     background-color: $background-error;
   }
-  &_user-active {
+  &_active {
     background-color: $background-primary;
   }
-  &_user-not-active {
+  &_not-active {
     background-color: $background-disabled;
   }
 }

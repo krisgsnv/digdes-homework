@@ -6,11 +6,13 @@
 </template>
 
 <script>
-import "./style.scss";
-
 export default {
   props: {
     message: String,
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>
