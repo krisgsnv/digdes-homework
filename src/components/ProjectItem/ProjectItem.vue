@@ -1,58 +1,56 @@
 <template>
   <div class="list-item">
     <div class="list-item__content">
-      <p class="list-item__title">{{ title }}</p>
+      <p class="list-item__name">{{ project.name }}</p>
       <div class="list-item__info">
-        <span class="list-item__num">{{ num }}</span>
-        <span class="list-item__status">{{ created }}</span>
+        <span class="list-item__num">#{{ project.code }}</span>
+        <span class="list-item__status">
+          {{ project.author }} создал(а) {{ project.dateCreated }}
+        </span>
         <span class="list-item__status list-item__status_right">
-          {{ modified }}
+          {{ project.authorEdited }} изменил(а) {{ project.dateEdited }}
         </span>
       </div>
     </div>
-    <MoreIcon
-      class="list-item__more-icon list-item__more-icon_default button_secondary button_secondary_default"
-    />
-    <Dropdown
-      :actions="dropdownActions"
-      class="list-item__dropdown dropdown_hidden"
-    />
+    <DropdownButton
+      :dropdownProps="dropdown"
+      :buttonProps="button"
+      class="list-item__dropdown" />
   </div>
 </template>
 
 <script>
 import "./style.scss";
 
-import MoreIcon from "@/components/MoreIcon/MoreIcon.vue";
-import Dropdown from "@/components/Dropdown/Dropdown.vue";
-
-const dropdownActions = [
-  {
-    link: "#",
-    text: "Редактировать",
-  },
-  {
-    link: "#",
-    text: "Удалить",
-    accent: true,
-  },
-];
+import DropdownButton from "@/components/DropdownButton/DropdownButton.vue";
 
 export default {
   data: function () {
     return {
-      dropdownActions,
+      button: {
+        classes: "list-item__more-icon list-item__more-icon_default",
+      },
+      dropdown: {
+        classes: "list-item__dropdown",
+        actions: [
+          {
+            link: "#",
+            text: "Редактировать",
+          },
+          {
+            link: "#",
+            text: "Удалить",
+            accent: true,
+          },
+        ],
+      },
     };
   },
   props: {
-    title: String,
-    num: String,
-    created: String,
-    modified: String,
+    project: Object,
   },
   components: {
-    MoreIcon,
-    Dropdown,
+    DropdownButton,
   },
 };
 </script>

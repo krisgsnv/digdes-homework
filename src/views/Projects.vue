@@ -2,8 +2,11 @@
   <div class="container">
     <Navigation />
     <main class="main">
-      <section v-if="tasks.length" class="list-items">
-        <TaskItem v-for="task in tasks" :key="task._id" :task="task" />
+      <section v-if="projects.length" class="list-items">
+        <ProjectItem
+          v-for="project in projects"
+          :key="project._id"
+          :project="project" />
       </section>
       <NotFound v-else :message="notFound.message">
         <Button class="not-found__button button_primary button_primary_default">
@@ -17,17 +20,17 @@
 <script>
 import NotFound from "@/components/NotFound/NotFound.vue";
 import Navigation from "@/components/Navigation/Navigation.vue";
-import TaskItem from "@/components/TaskItem/TaskItem.vue";
+import ProjectItem from "@/components/ProjectItem/ProjectItem.vue";
 import Button from "@/components/Button/Button.vue";
 
-import { tasks } from "@/common/exampleData.js";
+import { projects } from "@/common/exampleData.js";
 
 export default {
   data: function () {
     return {
-      tasks,
+      projects,
       notFound: {
-        message: "Не создана ни одна задача",
+        message: "Не создан ни один проект",
         buttonText: "Добавить",
       },
     };
@@ -35,7 +38,7 @@ export default {
   components: {
     NotFound,
     Navigation,
-    TaskItem,
+    ProjectItem,
     Button,
   },
 };

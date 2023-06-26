@@ -12,7 +12,7 @@
         <span class="list-item__status">
           {{ task.author }} создал(а) {{ task.dateCreated }}
         </span>
-        <StatusLabel :text="'Черновик'" class="status-label_draft" />
+        <StatusLabel :status="task.status" />
         <span
           v-if="task.dateEdited"
           class="list-item__status list-item__status_right">
@@ -20,11 +20,7 @@
         </span>
       </div>
     </div>
-    <MoreIcon
-      class="list-item__more-icon list-item__more-icon_default button_secondary button_secondary_default" />
-    <Dropdown
-      :actions="dropdownActions"
-      class="list-item__dropdown dropdown_hidden" />
+    <DropdownButton :dropdownProps="dropdown" :buttonProps="button" />
   </div>
 </template>
 
@@ -32,28 +28,31 @@
 import "./style.scss";
 import avatarSrc from "@/assets/images/profile.jpg";
 
-import MoreIcon from "@/components/MoreIcon/MoreIcon.vue";
-import Dropdown from "@/components/Dropdown/Dropdown.vue";
+import DropdownButton from "@/components/DropdownButton/DropdownButton.vue";
 import Avatar from "@/components/Avatar/Avatar.vue";
 import StatusLabel from "@/components/StatusLabel/StatusLabel.vue";
-
-const dropdownActions = [
-  {
-    link: "#",
-    text: "Редактировать",
-  },
-  {
-    link: "#",
-    text: "Удалить",
-    accent: true,
-  },
-];
 
 export default {
   data: function () {
     return {
       avatarSrc,
-      dropdownActions,
+      button: {
+        classes: "list-item__more-icon list-item__more-icon_default",
+      },
+      dropdown: {
+        classes: "list-item__dropdown",
+        actions: [
+          {
+            link: "#",
+            text: "Редактировать",
+          },
+          {
+            link: "#",
+            text: "Удалить",
+            accent: true,
+          },
+        ],
+      },
     };
   },
   props: {
@@ -62,8 +61,7 @@ export default {
   components: {
     Avatar,
     StatusLabel,
-    MoreIcon,
-    Dropdown,
+    DropdownButton,
   },
 };
 </script>

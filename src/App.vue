@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <Tasks />
+    <Projects />
   </div>
 </template>
 
 <script>
 import "@/scss/index.scss";
-import Tasks from "@/views/Tasks.vue";
+//import Button from "@/components/Button/Button.vue";
+//import Tasks from "@/views/Tasks.vue";
+import Projects from "@/views/Projects.vue";
 
 export default {
   name: "App",
   components: {
-    Tasks,
+    Projects,
   },
 };
 </script>

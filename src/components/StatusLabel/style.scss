@@ -6,7 +6,7 @@
   &_draft {
     background-color: $background-bronze;
   }
-  &_progress {
+  &_in-process {
     background-color: $background-bronze;
   }
   &_completed {
@@ -15,16 +15,19 @@
   &_testing {
     background-color: $background-bronze;
   }
+  &_testing-done {
+    background-color: $background-primary;
+  }
   &_closed {
     background-color: $background-primary;
   }
   &_deleted {
     background-color: $background-error;
   }
-  &_active {
+  &_user-active {
     background-color: $background-primary;
   }
-  &_not-active {
+  &_user-not-active {
     background-color: $background-disabled;
   }
 }

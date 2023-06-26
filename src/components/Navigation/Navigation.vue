@@ -1,59 +1,103 @@
 <template>
   <header class="navigation">
-    <Button
-      :text="'Проекты'"
-      class="navigation__item navigation__item_active" />
-    <Button
-      :text="'Задачи'"
-      class="navigation__item navigation__item_default" />
-    <button class="navigation-user" type="button" title="Профиль">
-      <Avatar :src="avatarSrc" class="navigation-user__avatar" />
-      <svg
-        class="navigation-user__arrow"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor">
-        <use xlink:href="#nav-arrow" />
-      </svg>
+    <button
+      v-for="(button, i) in buttons.items"
+      :key="i"
+      @click="setActiveButton(i)"
+      :class="buttonClasses(i)"
+      class="navigation__item button">
+      {{ button }}
     </button>
-    <Dropdown
-      :actions="dropdownActions"
-      class="navigation__dropdown dropdown_hidden" />
+    <button
+      @click="toggleActiveUser"
+      :class="userButtonClasses"
+      class="navigation-user"
+      type="button"
+      title="Профиль">
+      <Avatar :src="user.src" class="navigation-user__avatar" />
+      <Icon :href="dropdown.icon" class="navigation-user__arrow" />
+    </button>
+    <ul
+      :class="dropdownClasses"
+      class="dropdown navigation__dropdown dropdown_hidden">
+      <li v-for="action in dropdown.actions" :key="action.text">
+        <a
+          :href="action.link"
+          :class="{ dropdown__action_accent: action.accent }"
+          class="dropdown__action">
+          {{ action.text }}
+        </a>
+      </li>
+    </ul>
   </header>
 </template>
 
 <script>
-import avatarSrc from "@/assets/images/profile.jpg";
-import Avatar from "@/components/Avatar/Avatar.vue";
-import Button from "@/components/Button/Button.vue";
-import Dropdown from "@/components/Dropdown/Dropdown.vue";
-
 import "./style.scss";
+import src from "@/assets/images/profile.jpg";
 
-const dropdownActions = [
-  {
-    link: "#",
-    text: "Профиль",
-  },
-  {
-    link: "#",
-    text: "Выход",
-  },
-];
+import Avatar from "@/components/Avatar/Avatar.vue";
+//import Button from "@/components/Button/Button.vue";
+import Icon from "@/components/Icon/Icon.vue";
 
 export default {
   data: function () {
     return {
-      avatarSrc,
-      dropdownActions,
+      user: {
+        src,
+        isActive: false,
+      },
+      dropdown: {
+        icon: "#arrow",
+        actions: [
+          {
+            link: "#",
+            text: "Профиль",
+          },
+          {
+            link: "#",
+            text: "Выход",
+          },
+        ],
+        isActive: false,
+      },
+      buttons: {
+        active: 0,
+        items: ["Проекты", "Задачи", "Пользователи"],
+      },
     };
   },
+  methods: {
+    toggleActiveUser() {
+      this.user.isActive = !this.user.isActive;
+      this.dropdown.isActive = !this.dropdown.isActive;
+    },
+    setActiveButton(i) {
+      this.buttons.active = i;
+    },
+  },
+  computed: {
+    buttonClasses() {
+      return (i) => ({
+        navigation__item_active: i == this.buttons.active,
+        navigation__item_default: !(i == this.buttons.active),
+      });
+    },
+    userButtonClasses() {
+      return {
+        "navigation-user_active": this.user.isActive,
+      };
+    },
+    dropdownClasses() {
+      return {
+        dropdown_active: this.dropdown.isActive,
+      };
+    },
+  },
   components: {
-    Button,
+    //    Button,
     Avatar,
-    Dropdown,
+    Icon,
   },
 };
 </script>

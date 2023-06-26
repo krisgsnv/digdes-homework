@@ -1,15 +1,37 @@
 <template>
-  <button class="button" type="button">{{ text }}</button>
+  <button
+    @click="onClick"
+    :class="classes"
+    class="button"
+    type="button"
+    :disabled="disabled">
+    <slot />
+  </button>
 </template>
 
 <script>
 import "./style.scss";
 export default {
   data: function () {
-    return {};
+    return {
+      active: false,
+      disabled: false,
+    };
   },
   props: {
-    text: String,
+    onClick: {
+      type: Function,
+      default: function () {},
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        button_default: !this.disabled && !this.active,
+        button_disabled: this.disabled,
+        button_active: this.active,
+      };
+    },
   },
 };
 </script>
