@@ -5,17 +5,20 @@
       class="dropdown-button button button_small button_secondary"
       type="button"
       :title="button.title"
-      @click="toggleActive">
+      @click="toggleActive"
+    >
       <Icon
         :href="button.icon"
-        class="dropdown-button__svg dropdown-button__svg_secondary" />
+        class="dropdown-button__svg dropdown-button__svg_secondary"
+      />
     </button>
     <ul :class="[dropdownProps.classes, dropdownClasses]" class="dropdown">
       <li v-for="action in dropdownProps.actions" :key="action.text">
         <a
           :href="action.link"
           :class="{ dropdown__action_accent: action.accent }"
-          class="dropdown__action">
+          class="dropdown__action"
+        >
           {{ action.text }}
         </a>
       </li>

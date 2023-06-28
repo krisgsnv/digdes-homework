@@ -1,0 +1,28 @@
+.input {
+  min-width: 200px;
+  padding: 10px 12px;
+  border-radius: $border-radius-default;
+  background-color: $background-secondary;
+  &::placeholder {
+    color: $font-placeholder;
+  }
+  &_default {
+    border: $border-default;
+    &:hover {
+      border: $border-hover;
+    }
+  }
+  &_active {
+    border: $border-active;
+  }
+  &_error {
+    border: $border-error;
+  }
+  &_disabled {
+    background-color: $background-primary-disabled;
+    border: $border-disabled;
+    &::placeholder {
+      color: $font-disabled;
+    }
+  }
+}

@@ -6,7 +6,8 @@
         <ProjectItem
           v-for="project in projects"
           :key="project._id"
-          :project="project" />
+          :project="project"
+        />
       </section>
       <NotFound v-else :message="notFound.message">
         <Button class="not-found__button button_primary button_primary_default">

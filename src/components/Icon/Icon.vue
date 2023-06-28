@@ -1,10 +1,10 @@
 <template>
   <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    :width="width"
+    :height="height"
     fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg">
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <use :xlink:href="href" />
   </svg>
 </template>
@@ -12,7 +12,18 @@
 <script>
 export default {
   props: {
-    href: String,
+    href: {
+      type: String,
+      required: true,
+    },
+    width: {
+      type: Number,
+      default: 24,
+    },
+    height: {
+      type: Number,
+      default: 24,
+    },
   },
 };
 </script>

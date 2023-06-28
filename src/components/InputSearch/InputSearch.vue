@@ -7,7 +7,7 @@
     @blur="onBlur"
     v-model="value"
     :disabled="disabled"
-    :placeholder="placeholder"
+    placeholder="Введите текст..."
   />
 </template>
 
@@ -21,16 +21,6 @@ export default {
       error: false,
     };
   },
-  computed: {
-    classes() {
-      return {
-        input_default: !this.active && !this.disabled && !this.error,
-        input_disabled: this.disabled,
-        input_active: this.active,
-        input_error: this.error,
-      };
-    },
-  },
   methods: {
     onFocus() {
       this.active = true;
@@ -42,9 +32,17 @@ export default {
       this.active = false;
     },
   },
+  computed: {
+    classes() {
+      return {
+        input_default: !this.active && !this.disabled && !this.error,
+        input_disabled: this.disabled,
+        input_active: this.active,
+        input_error: this.error,
+      };
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-@import "./style.scss";
-</style>
+<style lang="scss"></style>

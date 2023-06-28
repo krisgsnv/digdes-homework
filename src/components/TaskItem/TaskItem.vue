@@ -15,7 +15,8 @@
         <StatusLabel :status="task.status" />
         <span
           v-if="task.dateEdited"
-          class="list-item__status list-item__status_right">
+          class="list-item__status list-item__status_right"
+        >
           {{ task.authorEdited }} изменил(а) {{ task.dateEdited }}
         </span>
       </div>

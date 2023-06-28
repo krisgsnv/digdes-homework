@@ -5,7 +5,8 @@
       :key="i"
       @click="setActiveButton(i)"
       :class="buttonClasses(i)"
-      class="navigation__item button">
+      class="navigation__item button"
+    >
       {{ button }}
     </button>
     <button
@@ -13,18 +14,21 @@
       :class="userButtonClasses"
       class="navigation-user"
       type="button"
-      title="Профиль">
+      title="Профиль"
+    >
       <Avatar :src="user.src" class="navigation-user__avatar" />
       <Icon :href="dropdown.icon" class="navigation-user__arrow" />
     </button>
     <ul
       :class="dropdownClasses"
-      class="dropdown navigation__dropdown dropdown_hidden">
+      class="dropdown navigation__dropdown dropdown_hidden"
+    >
       <li v-for="action in dropdown.actions" :key="action.text">
         <a
           :href="action.link"
           :class="{ dropdown__action_accent: action.accent }"
-          class="dropdown__action">
+          class="dropdown__action"
+        >
           {{ action.text }}
         </a>
       </li>

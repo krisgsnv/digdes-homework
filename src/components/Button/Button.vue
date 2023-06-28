@@ -4,7 +4,8 @@
     :class="classes"
     class="button"
     type="button"
-    :disabled="disabled">
+    :disabled="disabled"
+  >
     <slot />
   </button>
 </template>

@@ -15,7 +15,8 @@
     <DropdownButton
       :dropdownProps="dropdown"
       :buttonProps="button"
-      class="list-item__dropdown" />
+      class="list-item__dropdown"
+    />
   </div>
 </template>
 
