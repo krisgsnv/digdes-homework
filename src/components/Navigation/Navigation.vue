@@ -52,7 +52,7 @@ export default {
       },
       buttons: {
         active: 0,
-        items: ["Проекты", "Задачи", "Пользователи"],
+        items: ["Проекты", "Задачи", "Создать задачу"],
       },
     };
   },
@@ -61,6 +61,7 @@ export default {
       this.user.active = !this.user.active;
     },
     setActiveButton(i) {
+      this.$emit("toggle", i);
       this.buttons.active = i;
     },
   },
