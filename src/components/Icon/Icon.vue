@@ -4,6 +4,7 @@
     :height="height"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    v-on="listeners"
   >
     <use :xlink:href="href" />
   </svg>
@@ -11,6 +12,13 @@
 
 <script>
 export default {
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+      };
+    },
+  },
   props: {
     href: {
       type: String,

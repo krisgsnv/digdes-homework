@@ -1,6 +1,6 @@
 <template>
   <header class="navigation">
-    <button
+    <Button
       v-for="(button, i) in buttons.items"
       :key="i"
       @click="setActiveButton(i)"
@@ -8,49 +8,37 @@
       class="navigation__item button"
     >
       {{ button }}
-    </button>
-    <button
+    </Button>
+    <Button
       @click="toggleActiveUser"
       :class="userButtonClasses"
       class="navigation-user"
-      type="button"
-      title="Профиль"
+      :title="user.title"
     >
       <Avatar :src="user.src" class="navigation-user__avatar" />
-      <Icon :href="dropdown.icon" class="navigation-user__arrow" />
-    </button>
-    <ul
+      <Icon :href="user.icon" class="navigation-user__arrow" />
+    </Button>
+    <DropdownMenu
       :class="dropdownClasses"
       class="dropdown navigation__dropdown dropdown_hidden"
-    >
-      <li v-for="action in dropdown.actions" :key="action.text">
-        <a
-          :href="action.link"
-          :class="{ dropdown__action_accent: action.accent }"
-          class="dropdown__action"
-        >
-          {{ action.text }}
-        </a>
-      </li>
-    </ul>
+      :actions="dropdown.actions"
+    />
   </header>
 </template>
 
 <script>
 import src from "@/assets/images/profile.jpg";
 
-import Avatar from "@/components/Avatar/Avatar.vue";
-import Icon from "@/components/Icon/Icon.vue";
-
 export default {
   data: function () {
     return {
       user: {
         src,
-        isActive: false,
+        active: false,
+        title: "Профиль",
+        icon: "#arrow",
       },
       dropdown: {
-        icon: "#arrow",
         actions: [
           {
             link: "#",
@@ -61,7 +49,6 @@ export default {
             text: "Выход",
           },
         ],
-        isActive: false,
       },
       buttons: {
         active: 0,
@@ -71,8 +58,7 @@ export default {
   },
   methods: {
     toggleActiveUser() {
-      this.user.isActive = !this.user.isActive;
-      this.dropdown.isActive = !this.dropdown.isActive;
+      this.user.active = !this.user.active;
     },
     setActiveButton(i) {
       this.buttons.active = i;
@@ -87,18 +73,14 @@ export default {
     },
     userButtonClasses() {
       return {
-        "navigation-user_active": this.user.isActive,
+        "navigation-user_active": this.user.active,
       };
     },
     dropdownClasses() {
       return {
-        dropdown_active: this.dropdown.isActive,
+        dropdown_active: this.user.active,
       };
     },
-  },
-  components: {
-    Avatar,
-    Icon,
   },
 };
 </script>

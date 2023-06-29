@@ -35,7 +35,7 @@
       text-align: right;
     }
   }
-  &__more-icon {
+  &__dots {
     display: none;
     margin-left: 16px;
     padding: 9px;
@@ -45,7 +45,7 @@
     right: 16px;
     top: 55px;
   }
-  &:hover &__more-icon {
+  &:hover &__dots {
     display: flex;
   }
   &:hover &__content {

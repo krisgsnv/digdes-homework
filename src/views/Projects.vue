@@ -19,11 +19,6 @@
 </template>
 
 <script>
-import NotFound from "@/components/NotFound/NotFound.vue";
-import Navigation from "@/components/Navigation/Navigation.vue";
-import ProjectItem from "@/components/ProjectItem/ProjectItem.vue";
-import Button from "@/components/Button/Button.vue";
-
 import { projects } from "@/common/exampleData.js";
 
 export default {
@@ -35,12 +30,6 @@ export default {
         buttonText: "Добавить",
       },
     };
-  },
-  components: {
-    NotFound,
-    Navigation,
-    ProjectItem,
-    Button,
   },
 };
 </script>

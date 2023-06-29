@@ -12,22 +12,26 @@
         </span>
       </div>
     </div>
-    <DropdownButton
+    <ButtonDropdown
       :dropdownProps="dropdown"
       :buttonProps="button"
       class="list-item__dropdown"
-    />
+    >
+      <Icon
+        :href="button.icon"
+        class="dropdown-button__svg dropdown-button__svg_secondary"
+      />
+    </ButtonDropdown>
   </div>
 </template>
 
 <script>
-import DropdownButton from "@/components/DropdownButton/DropdownButton.vue";
-
 export default {
   data: function () {
     return {
       button: {
-        classes: "list-item__more-icon list-item__more-icon_default",
+        classes: "list-item__dots list-item__dots_default",
+        icon: "#dots",
       },
       dropdown: {
         classes: "list-item__dropdown",
@@ -47,9 +51,6 @@ export default {
   },
   props: {
     project: Object,
-  },
-  components: {
-    DropdownButton,
   },
 };
 </script>

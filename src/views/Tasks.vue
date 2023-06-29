@@ -15,11 +15,6 @@
 </template>
 
 <script>
-import NotFound from "@/components/NotFound/NotFound.vue";
-import Navigation from "@/components/Navigation/Navigation.vue";
-import TaskItem from "@/components/TaskItem/TaskItem.vue";
-import Button from "@/components/Button/Button.vue";
-
 import { tasks } from "@/common/exampleData.js";
 
 export default {
@@ -31,12 +26,6 @@ export default {
         buttonText: "Добавить",
       },
     };
-  },
-  components: {
-    NotFound,
-    Navigation,
-    TaskItem,
-    Button,
   },
 };
 </script>

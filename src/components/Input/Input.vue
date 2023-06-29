@@ -1,22 +1,26 @@
 <template>
-  <input
-    type="text"
-    class="input"
-    :class="classes"
-    @focus="onFocus"
-    @blur="onBlur"
-    v-model="value"
-    :disabled="disabled"
-    :placeholder="placeholder"
-  />
+  <div class="input-wrapper" :class="classes">
+    <input
+      type="text"
+      class="input-wrapper__input"
+      @blur="onBlur"
+      @focus="onFocus"
+      v-on="listeners"
+      v-model="value"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :readonly="readonly"
+    />
+    <slot />
+  </div>
 </template>
 
 <script>
 export default {
   data: function () {
     return {
-      value: "",
-      active: false,
+      value: this.defaultValue,
+      active: this.defaultActive,
       disabled: false,
       error: false,
     };
@@ -24,10 +28,15 @@ export default {
   computed: {
     classes() {
       return {
-        input_default: !this.active && !this.disabled && !this.error,
-        input_disabled: this.disabled,
-        input_active: this.active,
-        input_error: this.error,
+        "input-wrapper_default": !this.active && !this.disabled && !this.error,
+        "input-wrapper_disabled": this.disabled,
+        "input-wrapper_active": this.active,
+        "input-wrapper_error": this.error,
+      };
+    },
+    listeners() {
+      return {
+        ...this.$listeners,
       };
     },
   },
@@ -36,15 +45,20 @@ export default {
       this.active = true;
     },
     onBlur() {
-      if (!this.value) {
-        this.error = true;
-      }
       this.active = false;
     },
   },
+  props: {
+    defaultValue: {
+      type: String,
+      default: "",
+    },
+    placeholder: {
+      type: String,
+      default: "Введите значение...",
+    },
+    readonly: Boolean,
+    defaultActive: Boolean,
+  },
 };
 </script>
-
-<style lang="scss">
-@import "./style.scss";
-</style>

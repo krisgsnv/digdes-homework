@@ -1,26 +1,26 @@
 <template>
   <div id="app">
     <CreateTask />
-    <!-- <Profile />
+    <Profile />
     <Tasks />
-    <Projects /> -->
+    <Projects />
   </div>
 </template>
 
 <script>
 import "@/scss/index.scss";
-//import Profile from "@/views/Profile.vue";
-//import Tasks from "@/views/Tasks.vue";
-//import Projects from "@/views/Projects.vue";
+import Profile from "@/views/Profile.vue";
+import Tasks from "@/views/Tasks.vue";
+import Projects from "@/views/Projects.vue";
 import CreateTask from "@/views/CreateTask.vue";
 
 export default {
   name: "App",
   components: {
     CreateTask,
-    //Profile,
-    // Tasks,
-    // Projects
+    Profile,
+    Tasks,
+    Projects,
   },
 };
 </script>

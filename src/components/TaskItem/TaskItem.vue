@@ -21,23 +21,25 @@
         </span>
       </div>
     </div>
-    <DropdownButton :dropdownProps="dropdown" :buttonProps="button" />
+    <ButtonDropdown :dropdownProps="dropdown" :buttonProps="button">
+      <Icon
+        :href="button.icon"
+        class="dropdown-button__svg dropdown-button__svg_secondary"
+      />
+    </ButtonDropdown>
   </div>
 </template>
 
 <script>
 import avatarSrc from "@/assets/images/profile.jpg";
 
-import DropdownButton from "@/components/DropdownButton/DropdownButton.vue";
-import Avatar from "@/components/Avatar/Avatar.vue";
-import StatusLabel from "@/components/StatusLabel/StatusLabel.vue";
-
 export default {
   data: function () {
     return {
       avatarSrc,
       button: {
-        classes: "list-item__more-icon list-item__more-icon_default",
+        classes: "list-item__dots list-item__dots_default",
+        icon: "#dots",
       },
       dropdown: {
         classes: "list-item__dropdown",
@@ -57,11 +59,6 @@ export default {
   },
   props: {
     task: Object,
-  },
-  components: {
-    Avatar,
-    StatusLabel,
-    DropdownButton,
   },
 };
 </script>

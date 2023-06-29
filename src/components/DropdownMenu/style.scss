@@ -20,20 +20,7 @@
   &_active {
     display: block;
   }
-}
-
-.dropdown-button {
-  display: flex;
-  &__svg {
-    pointer-events: none;
-    &_primary {
-      color: $font-secondary;
-    }
-    &_secondary {
-      color: $font-primary;
-    }
-    &_disabled {
-      color: $font-disabled;
-    }
+  &_select {
+    width: calc(100% - 48px);
   }
 }
