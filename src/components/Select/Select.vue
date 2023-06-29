@@ -4,8 +4,9 @@
       <input
         readonly="true"
         class="input-wrapper__input input-wrapper__input_select"
-        v-model="value"
+        :value="value"
         @click="onClick"
+        :placeholder="placeholder"
       />
       <Icon :href="icon" class="input-wrapper__icon" />
     </div>
@@ -14,6 +15,7 @@
       :active="active"
       class="dropdown_select"
       @select="onSelect"
+      :selectedIndex="selectedIndex"
     />
   </div>
 </template>
@@ -23,7 +25,8 @@ export default {
   data() {
     return {
       icon: "#arrow",
-      value: this.actions[this.selectedIndex].text,
+      value:
+        this.selectedIndex >= 0 ? this.actions[this.selectedIndex].text : "",
       active: false,
     };
   },
@@ -44,11 +47,17 @@ export default {
     onSelect(action) {
       this.value = action.text;
       this.active = false;
+      this.$emit("input", this.value);
     },
   },
   props: {
     actions: Array,
     selectedIndex: Number,
+    placeholder: String,
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

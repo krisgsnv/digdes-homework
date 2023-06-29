@@ -1,8 +1,7 @@
 <template>
   <div class="input-wrapper" :class="classes">
-    <input
-      type="text"
-      class="input-wrapper__input"
+    <textarea
+      class="input-wrapper__input textarea"
       @blur="onBlur"
       @focus="onFocus"
       @input="onInput"
@@ -66,3 +65,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./style.scss";
+</style>

@@ -1,0 +1,24 @@
+.page-form {
+  &__title {
+    margin-bottom: 24px;
+  }
+  &__content {
+    border-top: $border-default;
+    border-bottom: $border-default;
+    padding: 24px 0;
+    flex-grow: 1;
+  }
+  &__form {
+    padding: 32px 24px 24px 24px;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+  &__footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 24px;
+  }
+}

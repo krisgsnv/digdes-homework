@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="wrapper">
     <Navigation />
     <main class="main">
       <section v-if="projects.length" class="list-items">

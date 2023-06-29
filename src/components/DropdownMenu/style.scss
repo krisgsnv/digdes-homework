@@ -13,14 +13,14 @@
     &_accent {
       color: $font-error;
     }
+    &_selected {
+      background-color: $background-secondary-active;
+    }
   }
   &_hidden {
     display: none;
   }
   &_active {
     display: block;
-  }
-  &_select {
-    width: calc(100% - 48px);
   }
 }

@@ -1,0 +1,16 @@
+.form-item {
+  display: flex;
+  align-items: flex-start;
+  &__label {
+    flex-basis: 120px;
+    flex-shrink: 0;
+    color: $font-disabled;
+  }
+  &__input {
+    flex-grow: 1;
+    margin-left: 8px;
+  }
+  &__required {
+    color: $font-error;
+  }
+}

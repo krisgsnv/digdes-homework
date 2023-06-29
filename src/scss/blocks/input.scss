@@ -10,9 +10,6 @@
     padding: 10px 0 10px 12px;
     color: inherit;
     background-color: transparent;
-    &_select {
-      cursor: pointer;
-    }
     &::placeholder {
       color: $font-placeholder;
     }
@@ -64,11 +61,6 @@
     }
     .input-wrapper__icon {
       color: $font-placeholder;
-    }
-  }
-  &_select.input-wrapper_active {
-    .input-wrapper__icon {
-      transform: rotate(180deg);
     }
   }
 }

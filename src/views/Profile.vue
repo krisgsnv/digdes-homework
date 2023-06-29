@@ -1,42 +1,39 @@
 <template>
-  <div class="container">
-    <Navigation />
-    <main class="main main_row">
-      <div class="profile-img">
-        <img :src="img.src" alt="Изображение профиля" />
-        <ButtonDropdown
-          :buttonProps="img.button"
-          :dropdownProps="img.dropdown"
-          class="profile-img__button"
-        >
+  <main class="main main_row">
+    <div class="profile-img">
+      <img :src="img.src" alt="Изображение профиля" />
+      <ButtonDropdown
+        :buttonProps="img.button"
+        :dropdownProps="img.dropdown"
+        class="profile-img__button"
+      >
+        <Icon
+          :href="img.button.icon"
+          class="dropdown-button__svg dropdown-button__svg_secondary"
+        />
+      </ButtonDropdown>
+    </div>
+    <section class="profile-info">
+      <div class="profile-header">
+        <div class="profile-header__inner">
+          <h2>Котов Семен Васильевич</h2>
+          <StatusLabel :status="status" />
+        </div>
+        <ButtonDropdown :dropdownProps="header.dropdown">
           <Icon
-            :href="img.button.icon"
+            :href="header.button.icon"
             class="dropdown-button__svg dropdown-button__svg_secondary"
           />
         </ButtonDropdown>
       </div>
-      <section class="profile-info">
-        <div class="profile-header">
-          <div class="profile-header__inner">
-            <h1 class="h1">Котов Семен Васильевич</h1>
-            <StatusLabel :status="status" />
-          </div>
-          <ButtonDropdown :dropdownProps="header.dropdown">
-            <Icon
-              :href="header.button.icon"
-              class="dropdown-button__svg dropdown-button__svg_secondary"
-            />
-          </ButtonDropdown>
-        </div>
-        <div class="profile-description">
-          <h3 class="profile-description__title">О себе:</h3>
-          <p class="profile-description__description">
-            {{ description }}
-          </p>
-        </div>
-      </section>
-    </main>
-  </div>
+      <div class="profile-description">
+        <h3 class="profile-description__title">О себе:</h3>
+        <p class="profile-description__description">
+          {{ description }}
+        </p>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>

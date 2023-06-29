@@ -1,0 +1,22 @@
+.select {
+  position: relative;
+}
+
+.dropdown {
+  &_select {
+    width: 100%;
+  }
+}
+
+.input-wrapper {
+  &__input {
+    &_select {
+      cursor: pointer;
+    }
+  }
+  &_select.input-wrapper_active {
+    .input-wrapper__icon {
+      transform: rotate(180deg);
+    }
+  }
+}
