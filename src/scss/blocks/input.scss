@@ -1,5 +1,4 @@
 .input-wrapper {
-  min-width: 200px;
   border-radius: $border-radius-default;
   background-color: $background-secondary;
   display: flex;
@@ -7,9 +6,11 @@
   padding-right: 8px;
   &__input {
     flex-grow: 1;
+    width: 100%;
     padding: 10px 0 10px 12px;
     color: inherit;
     background-color: transparent;
+    cursor: inherit;
     &::placeholder {
       color: $font-placeholder;
     }
@@ -62,5 +63,9 @@
     .input-wrapper__icon {
       color: $font-placeholder;
     }
+  }
+  &_date {
+    max-width: 130px;
+    cursor: pointer;
   }
 }

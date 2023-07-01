@@ -4,7 +4,10 @@
   box-shadow: $box-shadow-default;
   position: absolute;
   z-index: 1;
+  max-height: 366px;
+  overflow-y: auto;
   &__action {
+    cursor: pointer;
     display: block;
     padding: 8px 16px;
     &:hover {

@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <div class="input-wrapper input-wrapper_select" :class="classes">
+  <div class="select-wrapper">
+    <div
+      class="input-wrapper input-wrapper_select"
+      :class="classes"
+      @click="onClick"
+    >
       <input
         readonly="true"
         class="input-wrapper__input input-wrapper__input_select"
-        :value="value"
-        @click="onClick"
         :placeholder="placeholder"
+        v-bind="$attrs"
       />
       <Icon :href="icon" class="input-wrapper__icon" />
     </div>
@@ -15,7 +18,7 @@
       :active="active"
       class="dropdown_select"
       @select="onSelect"
-      :selectedIndex="selectedIndex"
+      :selectedIndex="selected"
     />
   </div>
 </template>
@@ -25,8 +28,8 @@ export default {
   data() {
     return {
       icon: "#arrow",
-      value:
-        this.selectedIndex >= 0 ? this.actions[this.selectedIndex].text : "",
+      // value:
+      //   this.selectedIndex >= 0 ? this.actions[this.selectedIndex].text : "",
       active: false,
     };
   },
@@ -38,6 +41,9 @@ export default {
         "input-wrapper_active": this.active,
         "input-wrapper_error": this.error,
       };
+    },
+    selected() {
+      return this.selectedIndex;
     },
   },
   methods: {

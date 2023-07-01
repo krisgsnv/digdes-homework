@@ -1,0 +1,63 @@
+.datepicker {
+  padding: 16px;
+  box-shadow: $box-shadow-default;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__row {
+    display: flex;
+    max-width: 305px;
+    flex-wrap: wrap;
+    gap: 4px;
+    &_weekdays {
+      color: $font-disabled;
+      border-bottom: $border-default;
+    }
+  }
+  &__day {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    &_disabled {
+      color: $font-disabled;
+      cursor: default;
+    }
+    &_today {
+      border-radius: 50%;
+      border: 1px solid $background-primary;
+    }
+    &_selected {
+      color: $font-secondary;
+      background-color: $background-primary;
+      border: none;
+      border-radius: 50%;
+    }
+  }
+  &__select {
+    &_month {
+      width: 130px;
+    }
+    &_year {
+      width: 90px;
+      margin-left: 8px;
+    }
+  }
+  &__nav {
+    width: 24px;
+    height: 24px;
+    color: $font-disabled;
+    &_prev {
+      transform: rotate(90deg);
+    }
+    &_next {
+      transform: rotate(270deg);
+    }
+  }
+  &__selects {
+    display: flex;
+  }
+}

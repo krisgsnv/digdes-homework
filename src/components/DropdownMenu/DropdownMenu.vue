@@ -1,40 +1,39 @@
 <template>
-  <ul :class="classes" class="dropdown">
-    <li v-for="(action, i) in actions" :key="i">
-      <a
-        :href="action.link"
-        :class="{
-          dropdown__action_accent: action.accent,
-          dropdown__action_selected: i == selected,
-        }"
-        class="dropdown__action"
-        @click.prevent="select(action, i)"
-      >
-        {{ action.text }}
-      </a>
+  <ul :class="dropdownClasses" class="dropdown">
+    <li
+      v-for="(action, i) in actions"
+      :key="i"
+      :class="actionClasses(action, i)"
+      class="dropdown__action"
+      @click="select(action, i)"
+    >
+      {{ action.text }}
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      selected: this.selectedIndex,
-    };
-  },
   computed: {
-    classes() {
+    dropdownClasses() {
       return {
         dropdown_active: this.active,
         dropdown_hidden: !this.active,
       };
     },
+    selected() {
+      return this.selectedIndex;
+    },
   },
   methods: {
-    select(action, i) {
-      this.selected = i;
+    select(action) {
       this.$emit("select", action);
+    },
+    actionClasses(action, i) {
+      return {
+        dropdown__action_accent: action.accent,
+        dropdown__action_selected: i == this.selected,
+      };
     },
   },
   props: {

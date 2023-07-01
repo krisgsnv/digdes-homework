@@ -1,15 +1,15 @@
 <template>
   <div class="input-wrapper" :class="classes">
     <input
-      type="text"
+      :type="type"
       class="input-wrapper__input"
-      @blur="onBlur"
-      @focus="onFocus"
-      @input="onInput"
+      v-bind="$attrs"
       :value="value"
-      :disabled="disabled"
       :placeholder="placeholder"
-      :readonly="readonly"
+      v-on="listeners"
+      :active="active"
+      :disabled="disabled"
+      :error="error"
     />
     <slot />
   </div>
@@ -17,14 +17,6 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      value: this.defaultValue,
-      active: this.defaultActive,
-      disabled: false,
-      error: false,
-    };
-  },
   computed: {
     classes() {
       return {
@@ -34,26 +26,21 @@ export default {
         "input-wrapper_error": this.error,
       };
     },
-    listeners() {
-      return {
-        ...this.$listeners,
-      };
-    },
-  },
-  methods: {
-    onFocus() {
-      this.active = true;
-    },
-    onBlur() {
-      this.active = false;
-    },
-    onInput(event) {
-      this.value = event.target.value;
-      this.$emit("input", this.value);
+    listeners: function () {
+      const vm = this;
+      return Object.assign({}, this.$listeners, {
+        input: function (event) {
+          vm.$emit("input", event.target.value);
+        },
+      });
     },
   },
   props: {
-    defaultValue: {
+    type: {
+      type: String,
+      default: "text",
+    },
+    value: {
       type: String,
       default: "",
     },
@@ -61,8 +48,18 @@ export default {
       type: String,
       default: "Введите значение...",
     },
-    readonly: Boolean,
-    defaultActive: Boolean,
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
