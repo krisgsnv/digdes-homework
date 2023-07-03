@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-click-outside="removeActive">
     <Button
       :class="[buttonClasses, buttonProps.classes]"
       class="dropdown-button button button_small button_secondary"
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import vClickOutside from "v-click-outside";
+
 export default {
   data: function () {
     return {
@@ -27,6 +29,9 @@ export default {
     };
   },
   methods: {
+    removeActive() {
+      this.active = false;
+    },
     toggleActive() {
       this.active = !this.active;
     },
@@ -49,6 +54,9 @@ export default {
       },
     },
     dropdownProps: Object,
+  },
+  directives: {
+    clickOutside: vClickOutside.directive,
   },
 };
 </script>

@@ -9,25 +9,28 @@
     >
       {{ button }}
     </Button>
-    <Button
-      @click="toggleActiveUser"
-      :class="userButtonClasses"
-      class="navigation-user"
-      :title="user.title"
-    >
-      <Avatar :src="user.src" class="navigation-user__avatar" />
-      <Icon :href="user.icon" class="navigation-user__arrow" />
-    </Button>
-    <DropdownMenu
-      :class="dropdownClasses"
-      class="dropdown navigation__dropdown dropdown_hidden"
-      :actions="dropdown.actions"
-    />
+    <div v-click-outside="removeActiveUser">
+      <Button
+        @click="toggleActiveUser"
+        :class="userButtonClasses"
+        class="navigation-user"
+        :title="user.title"
+      >
+        <Avatar :src="user.src" class="navigation-user__avatar" />
+        <Icon :href="user.icon" class="navigation-user__arrow" />
+      </Button>
+      <DropdownMenu
+        :class="dropdownClasses"
+        class="dropdown navigation__dropdown dropdown_hidden"
+        :actions="dropdown.actions"
+      />
+    </div>
   </header>
 </template>
 
 <script>
 import src from "@/assets/images/profile.jpg";
+import vClickOutside from "v-click-outside";
 
 export default {
   data: function () {
@@ -57,6 +60,9 @@ export default {
     };
   },
   methods: {
+    removeActiveUser() {
+      this.user.active = false;
+    },
     toggleActiveUser() {
       this.user.active = !this.user.active;
     },
@@ -82,6 +88,9 @@ export default {
         dropdown_active: this.user.active,
       };
     },
+  },
+  directives: {
+    clickOutside: vClickOutside.directive,
   },
 };
 </script>
