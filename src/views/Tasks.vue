@@ -1,7 +1,13 @@
 <template>
   <main class="main">
     <section v-if="tasks.length" class="list-items">
-      <TaskItem v-for="task in tasks" :key="task._id" :task="task" />
+      <router-link
+        v-for="task in tasks"
+        :key="task._id"
+        :to="`tasks/${task._id}`"
+      >
+        <TaskItem :task="task" />
+      </router-link>
     </section>
     <NotFound v-else :message="notFound.message">
       <Button class="not-found__button button_primary button_primary_default">

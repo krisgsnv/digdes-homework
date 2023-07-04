@@ -6,6 +6,7 @@ import TaskDetail from "@/views/TaskDetail.vue";
 import NotFound from "@/views/NotFound.vue";
 import Auth from "@/views/Auth.vue";
 import UsersList from "@/views/UsersList.vue";
+import Projects from "@/views/Projects.vue";
 
 Vue.use(VueRouter);
 
@@ -27,7 +28,7 @@ const routes = [
     component: Auth,
   },
   {
-    path: "/users-list",
+    path: "/users",
     name: "UsersList",
     component: UsersList,
     beforeEnter: (to, from, next) => {
@@ -37,6 +38,11 @@ const routes = [
         next("auth");
       }
     },
+  },
+  {
+    path: "/projects",
+    name: "Projects",
+    component: Projects,
   },
   {
     path: "/",

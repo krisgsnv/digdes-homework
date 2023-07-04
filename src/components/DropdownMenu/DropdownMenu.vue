@@ -8,7 +8,7 @@
           dropdown__action_selected: i == selected,
         }"
         class="dropdown__action"
-        @click.prevent="select(action, i)"
+        @click.prevent.stop="select(action, i)"
       >
         {{ action.text }}
       </a>
