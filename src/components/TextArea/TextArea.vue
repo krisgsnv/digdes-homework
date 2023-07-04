@@ -5,10 +5,9 @@
       @blur="onBlur"
       @focus="onFocus"
       @input="onInput"
-      :value="value"
+      v-bind="$attrs"
       :disabled="disabled"
       :placeholder="placeholder"
-      :readonly="readonly"
     />
     <slot />
   </div>
@@ -60,7 +59,6 @@ export default {
       type: String,
       default: "Введите значение...",
     },
-    readonly: Boolean,
     defaultActive: Boolean,
   },
 };

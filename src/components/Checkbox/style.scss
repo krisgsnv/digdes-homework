@@ -1,0 +1,28 @@
+.checkbox {
+  display: flex;
+  position: relative;
+  &_disabled {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 14px;
+      height: 14px;
+      z-index: -1;
+      background-color: $background-primary-disabled;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    color: $background-secondary;
+    &_checked {
+      color: $background-primary;
+    }
+    &_disabled {
+      color: $font-disabled;
+      cursor: initial;
+    }
+  }
+}

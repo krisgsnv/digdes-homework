@@ -1,0 +1,32 @@
+.radio-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio {
+  display: flex;
+  position: relative;
+  margin-left: 10px;
+  &_disabled {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      z-index: -1;
+      background-color: $background-primary-disabled;
+      border-radius: 50%;
+    }
+  }
+  &__icon {
+    color: $background-primary;
+    cursor: pointer;
+    &_disabled {
+      color: $font-disabled;
+      cursor: initial;
+    }
+  }
+}

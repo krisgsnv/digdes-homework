@@ -1,14 +1,15 @@
 <template>
-  <div class="input-wrapper input-wrapper_search" :class="classes">
-    <input
-      type="search"
-      @focus="onFocus"
-      @blur="onBlur"
-      class="input-wrapper__input"
-      v-model="value"
-      :disabled="disabled"
-      :placeholder="placeholder"
-    />
+  <Input
+    :type="'search'"
+    @focus="onFocus"
+    @blur="onBlur"
+    class="input-wrapper_search"
+    v-model="value"
+    :disabled="disabled"
+    :placeholder="placeholder"
+    :active="active"
+    :error="error"
+  >
     <Icon
       :href="icons.clear"
       :width="16"
@@ -18,14 +19,14 @@
       v-if="value || active"
     />
     <Icon :href="icons.search" class="input-wrapper__icon" />
-  </div>
+  </Input>
 </template>
 
 <script>
 export default {
   data: function () {
     return {
-      value: this.defaultValue,
+      value: this.initialValue,
       active: false,
       disabled: false,
       error: false,
@@ -46,18 +47,8 @@ export default {
       this.value = "";
     },
   },
-  computed: {
-    classes() {
-      return {
-        "input-wrapper_default": !this.active && !this.disabled && !this.error,
-        "input-wrapper_disabled": this.disabled,
-        "input-wrapper_active": this.active,
-        "input-wrapper_error": this.error,
-      };
-    },
-  },
   props: {
-    defaultValue: {
+    initialValue: {
       type: String,
       default: "",
     },
