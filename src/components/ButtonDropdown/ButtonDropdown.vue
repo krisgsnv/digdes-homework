@@ -2,7 +2,7 @@
   <div>
     <Button
       :class="[buttonClasses, buttonProps.classes]"
-      class="dropdown-button button button_small button_secondary"
+      class="dropdown-button button_small button_secondary"
       :title="button.title"
       @click="toggleActive"
     >

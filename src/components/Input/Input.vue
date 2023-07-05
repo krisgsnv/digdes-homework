@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   computed: {
     classes() {
       return {

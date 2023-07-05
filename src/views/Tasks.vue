@@ -1,8 +1,11 @@
 <template>
   <main class="main">
-    <section v-if="tasks.length" class="list-items">
-      <TaskItem v-for="task in tasks" :key="task._id" :task="task" />
-    </section>
+    <div v-if="tasks.length">
+      <SearchBar />
+      <div class="list-items">
+        <TaskItem v-for="task in tasks" :key="task._id" :task="task" />
+      </div>
+    </div>
     <NotFound v-else :message="notFound.message">
       <Button class="not-found__button button_primary button_primary_default">
         {{ notFound.buttonText }}

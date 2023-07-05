@@ -1,0 +1,20 @@
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 24px;
+  &__input {
+    flex-grow: 1;
+  }
+  &__sort {
+    display: flex;
+  }
+  &__order {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &__select {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

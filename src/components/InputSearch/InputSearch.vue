@@ -9,6 +9,7 @@
     :placeholder="placeholder"
     :active="active"
     :error="error"
+    v-on="listeners"
   >
     <Icon
       :href="icons.clear"
@@ -35,6 +36,13 @@ export default {
         clear: "#clear",
       },
     };
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+      };
+    },
   },
   methods: {
     onFocus() {

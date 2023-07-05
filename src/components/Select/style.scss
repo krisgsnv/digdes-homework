@@ -10,6 +10,7 @@
 
 .input-wrapper {
   &_select {
+    height: 100%;
     cursor: pointer;
   }
   &_select.input-wrapper_active {

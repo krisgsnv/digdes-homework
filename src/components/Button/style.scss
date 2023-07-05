@@ -4,34 +4,34 @@
   transition: background-color 0.2s ease-in-out;
   &_primary {
     color: $font-secondary;
-    &_default {
+    &.button_default {
       background-color: $background-primary;
       &:hover {
         background-color: $background-primary-hover;
       }
     }
-    &_active {
+    &.button_active {
       background-color: $background-primary-active;
     }
-    &_disabled {
+    &.button_disabled {
       background-color: $background-primary-disabled;
     }
   }
   &_secondary {
     color: $font-primary;
     border: $border-default;
-    &_default {
+    &.button_default {
       background-color: $background-secondary;
       &:hover {
         background-color: $background-secondary-hover;
         border: $border-hover;
       }
     }
-    &_active {
+    &.button_active {
       background-color: $background-secondary-active;
       border: $border-active;
     }
-    &_disabled {
+    &.button_disabled {
       border: $border-disabled;
     }
   }
@@ -40,5 +40,6 @@
   }
   &_small {
     padding: 9px;
+    display: flex;
   }
 }

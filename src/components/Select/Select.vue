@@ -2,7 +2,7 @@
   <div class="select-wrapper">
     <div
       class="input-wrapper input-wrapper_select"
-      :class="classes"
+      :class="[classes, inputWrapperClasses]"
       @click="onClick"
     >
       <input
@@ -60,6 +60,10 @@ export default {
     actions: Array,
     selectedIndex: Number,
     placeholder: String,
+    inputWrapperClasses: {
+      type: String,
+      default: "",
+    },
   },
 };
 </script>
